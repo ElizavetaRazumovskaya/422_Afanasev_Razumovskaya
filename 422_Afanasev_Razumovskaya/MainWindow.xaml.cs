@@ -24,5 +24,49 @@ namespace _422_Afanasev_Razumovskaya
         {
             InitializeComponent();
         }
+        private void BtnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+            if (!double.TryParse(txtX.Text, out double x) || !double.TryParse(txtY.Text, out double y))
+            {
+                MessageBox.Show("Введите корректные числа", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            double fx = 0;
+            if (rbSinh.IsChecked == true)
+                fx = Math.Sinh(x);
+            else if (rbSquare.IsChecked == true)
+                fx = Math.Pow(x, 2);
+            else if (rbExp.IsChecked == true)
+                fx = Math.Exp(x);
+
+            double result = 0; 
+            if (x - y == 0)
+                result = Math.Pow(fx, 2) + Math.Pow(y, 2) + Math.Sin(y);
+            else if (x - y > 0)
+                result = Math.Pow(fx - y, 2) + Math.Cos(y);
+            else
+                result = Math.Pow(y - fx, 2) + Math.Tan(y);
+
+            txtResult.Text = result.ToString("F4");
+        }
+
+        private void BtnClear_Click(object sender, RoutedEventArgs e)
+        {
+            txtX.Clear();
+            txtY.Clear();
+            txtResult.Clear();
+            rbSinh.IsChecked = false;
+            rbSquare.IsChecked = false;
+            rbExp.IsChecked = false;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите выйти?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

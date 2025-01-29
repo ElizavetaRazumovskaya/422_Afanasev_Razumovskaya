@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_422_Afanasev_Razumovskaya"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Closing="Window_Closing">
     <Grid>
-        <TextBox Text="Привет" Margin="260,154,260,154"/>
+
+        <Label Content="x:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,100,0,0"/>
+        <TextBox Name="txtX" Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,100,0,0" ToolTip="Введите значение x"/>
+
+        <Label Content="y:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,0,0"/>
+        <TextBox Name="txtY" Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,130,0,0" ToolTip="Введите значение y"/>
+
+        <Label Content="Выберите функцию f(x):" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,155,0,0"/>
+        <RadioButton Name="rbSinh" Content="sh(x)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,180,0,0" ToolTip="Гиперболический синус" Height="16"/>
+        <RadioButton Name="rbSquare" Content="x²" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0" ToolTip="Квадрат x" Height="16"/>
+        <RadioButton Name="rbExp" Content="e^x" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,220,0,0" ToolTip="Экспонента e^x" Height="17"/>
+
+        <Button Name="btnCalculate" Content="Вычислить" Width="100" Height="33" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,250,0,0" Click="BtnCalculate_Click" ToolTip="Вычислить значение функции"/>
+        <Button Name="btnClear" Content="Очистить" Width="100" Height="33" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,250,0,0" Click="BtnClear_Click" ToolTip="Очистить поля"/>
+
+        <Label Content="Ответ:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,308,0,0" Height="28"/>
+        <TextBox Name="txtResult" Width="100" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,308,0,0" IsReadOnly="True" ToolTip="Результат вычисления"/>
+        <Image  Source="/Properties/Image.png" Width="290" Height="84" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
     </Grid>
 </Window>
